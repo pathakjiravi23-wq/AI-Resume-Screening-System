@@ -8,7 +8,7 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 # Format: postgresql+psycopg2://<username>:<password>@<host>:<port>/<database_name>
 DataBase = os.environ["DATABASE_URL"]
 # create_engine manages the live connection pool to PostgreSQL
-# echo=True prints the generated SQL queries to your terminal (great for learning!)
+# echo=True prints the generated SQL queries to your terminal
 engine = create_engine(DataBase, echo=False)
 SessionLocal = sessionmaker(bind=engine)
 
