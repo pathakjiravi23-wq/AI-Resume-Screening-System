@@ -15,8 +15,8 @@ def docx_file(path) -> str:
     text = []
     for para in docu.paragraphs:
         if para.text.strip():
-            text.append(para)
-    # if tables are present
+            text.append(para.text)
+    # Extract tables
     for tables in docu.tables:
         for row in tables.rows:
             row_cells = "|".join(cell.text.strip() for cell in row.cells)
