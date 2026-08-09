@@ -1,5 +1,6 @@
 from pathlib import Path
 from reader import text_file, pdf_file, docx_file
+from preprocessor import clean_text
 
 READER = {".txt": text_file, ".pdf": pdf_file, ".docx": docx_file}
 
@@ -17,8 +18,9 @@ def document(file_path: str) -> str:
 def main():
     path = input("Enter file adderess : ")
     try:
-        text = document(path)
-        print(text)
+        doc_data = document(path)
+        clean_data = clean_text(doc_data)
+        print(clean_data)
     except Exception as e:
         print(e)
 
