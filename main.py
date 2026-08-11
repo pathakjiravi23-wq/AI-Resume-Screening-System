@@ -1,6 +1,7 @@
 from pathlib import Path
 from reader import text_file, pdf_file, docx_file
 from preprocessor import clean_text
+from analyzer import resume_analyzer
 
 READER = {".txt": text_file, ".pdf": pdf_file, ".docx": docx_file}
 
@@ -20,7 +21,8 @@ def main():
     try:
         doc_data = document(path)
         clean_data = clean_text(doc_data)
-        print(clean_data)
+        extracted_keywords = resume_analyzer(clean_data)
+        print(extracted_keywords)
     except Exception as e:
         print(e)
 
